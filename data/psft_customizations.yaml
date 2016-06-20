@@ -1,0 +1,4 @@
+oracle_base:      e:/oracle
+
+jdk_location:           "%{hiera('oracle_base')}/jdk1.7.0_95"
+weblogic_location:      "%{hiera('oracle_base')}/bea"
