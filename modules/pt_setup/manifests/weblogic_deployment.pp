@@ -29,17 +29,6 @@ class pt_setup::weblogic_deployment (
   $jdk_tag          = 'jdk'
   $weblogic_tag     = 'weblogic'
 
-
-  $pt_location = hiera('pt_location')
-  notice ("Tools deployment PT location is  ${pt_location}")
-
-  $db_location = hiera('db_location')
-  notice ("Tools deployment DB location is  ${db_location}")
-
-  include ::pt_setup::psft_filesystem
-  realize ( ::File[$pt_location] )
-  realize ( ::File[$db_location] )
-
   $jdk_archive_file      = get_matched_file($tools_archive_location, $jdk_tag)
   if $jdk_archive_file == '' {
     fail("Unable to locate archive (tgz) file for JDK in ${tools_archive_location}")
